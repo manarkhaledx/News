@@ -8,7 +8,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.newsapp.R
-import com.example.newsapp.ViewMessage
+import com.example.newsapp.MessageView
 import com.example.newsapp.api.Constants
 import com.example.newsapp.api.model.newsResponse.Article
 import com.example.newsapp.api.model.sourcesResponse.Source
@@ -95,7 +95,7 @@ class NewsFragment : Fragment() {
         adapter.changeData(articles)
     }
 
-    private fun showError(message: ViewMessage) {
+    private fun showError(message: MessageView) {
         viewBinding.errorView.isVisible = true
         viewBinding.errorMessage.text = message.message
         viewBinding.tryAgain.text = message.posActionName

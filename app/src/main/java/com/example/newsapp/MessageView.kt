@@ -1,6 +1,6 @@
 package com.example.newsapp
 
-data class ViewMessage(
+data class MessageView(
     val message: String,
     val posActionName: String? = null,
     val posAction: (() -> Unit)? = null,

@@ -3,7 +3,7 @@ package com.example.newsapp.newsFragment
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.newsapp.ViewMessage
+import com.example.newsapp.MessageView
 import com.example.newsapp.api.ApiManager
 import com.example.newsapp.api.model.newsResponse.Article
 import com.example.newsapp.api.model.newsResponse.NewsResponse
@@ -17,7 +17,7 @@ import retrofit2.HttpException
 class NewsViewModel : ViewModel() {
 
     val isLoadingVisible = MutableLiveData<Boolean>()
-    val message = MutableLiveData<ViewMessage>()
+    val message = MutableLiveData<MessageView>()
     val newsLiveData = MutableLiveData<List<Article?>?>()
 
     fun loadNews(source: Source) {
@@ -34,13 +34,13 @@ class NewsViewModel : ViewModel() {
                         NewsResponse::class.java
                     )
                     message.postValue(
-                        ViewMessage(
+                        MessageView(
                             message = errorResponse.message ?: "Error"
                         )
                     )
                 } catch (ex: Exception) {
                     message.postValue(
-                        ViewMessage(
+                        MessageView(
                             message = ex.message ?: "Error"
                         )
                     )
@@ -66,13 +66,13 @@ class NewsViewModel : ViewModel() {
                     SourcesResponse::class.java
                 )
                 message.postValue(
-                    ViewMessage(
+                    MessageView(
                         message = errorResponse.message ?: "Error"
                     )
                 )
             } catch (ex: Exception) {
                 message.postValue(
-                    ViewMessage(
+                    MessageView(
                         message = ex.message ?: "Error"
                     )
                 )

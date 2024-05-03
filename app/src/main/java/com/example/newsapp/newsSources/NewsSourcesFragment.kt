@@ -8,7 +8,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.newsapp.R
-import com.example.newsapp.ViewMessage
+import com.example.newsapp.MessageView
 import com.example.newsapp.api.model.sourcesResponse.Source
 import com.example.newsapp.databinding.FragmentNewsSourcesBinding
 import com.example.newsapp.newsFragment.NewsFragment
@@ -88,7 +88,7 @@ class NewsSourcesFragment(private var categories: String) : Fragment() {
         viewBinding.tabLayout.getTabAt(0)?.select()
     }
 
-    private fun showError(message: ViewMessage) {
+    private fun showError(message: MessageView) {
         viewBinding.errorView.isVisible = true
         viewBinding.errorMessage.text = message.message
         viewBinding.tryAgain.text = message.posActionName
